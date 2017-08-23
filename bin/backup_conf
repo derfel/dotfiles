@@ -1,0 +1,2 @@
+cd ~/.vim && gist-paste -p vimrc -u c82cacf4dbb6b756deb1
+cd ~ && gist-paste -p .bashrc -u 64fcabbae6b1b5d2530d

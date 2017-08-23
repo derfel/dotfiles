@@ -1,0 +1,4 @@
+#!/bin/bash
+
+ps aux | grep flash | egrep '(chromium|nsplugin)' | gawk '{print $2}' | xargs -i kill -9 {}
+

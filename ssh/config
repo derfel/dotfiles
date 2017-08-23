@@ -1,0 +1,199 @@
+Host *
+	VisualHostKey	yes
+	Compression	yes
+	ControlMaster	auto
+	ControlPath	~/.ssh/master-%r@%h:%p
+	TCPKeepAlive    yes
+	ServerAliveInterval 60
+
+#
+# From: https://glandium.org/blog/?p=3631
+# Host *+*
+# ProxyCommand ssh -W $(echo %h | sed 's/^.*+//;s/^\([^:]*$\)/\1:22/') $(echo %h | sed 's/+[^+]*$//;s/\([^+%%]*\)%%\([^+]*\)$/\2 -l \1/;s/:\([^:+]*\)$/ -p \1/')
+# ssh login1%host1:port1+host2:port2 -l login2
+# ssh login1%host1:port1+login2%host2:port2+host3:port3 -l login3
+# 
+
+Host finarfin
+	HostName	finarfin.lorien.arda
+	User		derfel
+	Compression	yes
+	ForwardX11	yes
+	Protocol	2
+	ForwardAgent	yes
+
+Host huan
+	HostName	192.168.1.1
+	User		root
+	Compression	no
+	ForwardX11	no
+	Protocol	2
+	ForwardAgent	no
+
+Host wokito
+	#HostName	akida.mine.nu
+	HostName	151.53.9.251
+	User		derfel
+	Compression	yes
+	ForwardX11	yes
+	Protocol	2
+	Port		1985
+	ForwardAgent	yes
+
+Host webfaction
+	HostName	derfel.webfactional.com
+	User		derfel
+	Compression	yes
+	ForwardX11	no
+	Protocol	2
+	ForwardAgent	no
+	TCPKeepAlive    yes
+
+Host twistar
+	HostName	twistar.webfactional.com
+	User		twistar
+	Compression	yes
+	ForwardX11	no
+	Protocol	2
+	ForwardAgent	no
+	TCPKeepAlive    yes
+
+Host terran
+	#HostName	151.32.218.168
+	#HostName	2.235.219.195
+	HostName	83.211.72.125
+	User            derfel
+	Port		2222
+	Compression     yes
+	ForwardX11      yes
+	Protocol        2
+	ForwardAgent    yes
+	ServerAliveInterval 20
+	#ProxyCommand	ssh -q tulkas /bin/nc %h %p
+
+Host fingolfin
+	HostName	192.168.1.7
+	User		derfel
+	Compression	yes
+	ForwardX11	yes
+	Protocol	2
+	ForwardAgent	yes
+
+Host enrico
+	Hostname	enrico.paiper.it
+	User		derfel
+#AddressFamily	inet6
+	Compression     yes
+	ForwardX11      no
+	Protocol        2
+	ForwardAgent    yes
+	TCPKeepAlive    yes
+	LocalForward	6380 127.0.0.1:6379
+
+Host oscar
+	Hostname	oscar.paiper.it
+	User		derfel
+#AddressFamily	inet6
+	Compression     yes
+	ForwardX11      no
+	Protocol        2
+	ForwardAgent    no
+	TCPKeepAlive    yes
+
+Host volta
+	Hostname	volta.paiper.it
+	User		derfel
+#AddressFamily	inet6
+	Compression     yes
+	ForwardX11      no
+	Protocol        2
+	ForwardAgent    yes
+	TCPKeepAlive    yes
+	LocalForward	6381 127.0.0.1:6379
+
+Host erasmo
+	Hostname	erasmo.paiper.it
+	User		derfel
+#AddressFamily	inet6
+	Compression     yes
+	ForwardX11      no
+	Protocol        2
+	ForwardAgent    yes
+	TCPKeepAlive    yes
+
+Host bb
+	Compression yes
+	HostName bitbucket.org
+	User hg
+
+
+host z3
+	Hostname	192.168.1.67 
+	User		derfel
+	Compression     yes
+	ForwardX11      no
+	Protocol        2
+	ForwardAgent    yes
+	TCPKeepAlive    yes
+
+Host stream0
+	Hostname	stream0.elive.pw
+	User		derfel
+	IdentityFile	"~/.ssh/easylive.pem"
+	Compression     yes
+	ForwardX11      no
+	Protocol        2
+	ForwardAgent    yes
+	TCPKeepAlive    yes
+
+Host stream1
+	Hostname	stream1.elive.pw
+	User		derfel
+	IdentityFile	"~/.ssh/easylive.pem"
+	Compression     yes
+	ForwardX11      no
+	Protocol        2
+	ForwardAgent    yes
+	TCPKeepAlive    yes
+
+Host stream2
+	Hostname	stream2.elive.pw
+	User		derfel
+	IdentityFile	"~/.ssh/easylive.pem"
+	Compression     yes
+	ForwardX11      no
+	Protocol        2
+	ForwardAgent    yes
+	TCPKeepAlive    yes
+
+Host stream3
+	Hostname	stream3.elive.pw
+	User		derfel
+	IdentityFile	"~/.ssh/easylive.pem"
+	Compression     yes
+	ForwardX11      no
+	Protocol        2
+	ForwardAgent    yes
+	TCPKeepAlive    yes
+
+
+Host stream4
+	Hostname	stream4.elive.pw
+	User		derfel
+	IdentityFile	"~/.ssh/easylive.pem"
+	Compression     yes
+	ForwardX11      no
+	Protocol        2
+	ForwardAgent    yes
+	TCPKeepAlive    yes
+
+Host stream5
+	Hostname	stream5.elive.pw
+	User		derfel
+	IdentityFile	"~/.ssh/easylive.pem"
+	Compression     yes
+	ForwardX11      no
+	Protocol        2
+	ForwardAgent    yes
+	TCPKeepAlive    yes
+

@@ -1,0 +1,74 @@
+#!/bin/bash
+
+# Name:         djvim
+# Description:  Script to automate the setup of the
+#               enviroment vars to use omicomplete in vim
+#               for Django projects. 
+# Usage:        djvim filename
+#
+# Author:       Jesús Manuel Mager Hois
+# Copyright:    GPL v3 or later
+
+
+#Set the global vars to the Django project
+function startvim(){
+    local arr=$(echo $1 | tr "/" "\n")
+    for x in $arr
+    do
+        #echo "[$x]"
+        local PROJECT=$x
+    done
+    echo $PROJECT
+    cd ..
+    local DIR=`pwd`
+    export PYTHONPATH=$PYTHONPATH:$DIR
+    export DJANGO_SETTINGS_MODULE=$PROJECT.settings 
+    vim $ARGS
+}
+
+#Iter the directory tree to find setting.py
+function finddjbase(){
+    cd ..
+    local DIRF=`pwd`
+    local FILEF=`echo "$DIRF/settings.py"`
+    if [ $DIRF == '/' ]
+    then
+        echo "Couldn't find the Django base directory"
+        exit
+    fi
+    echo "Trying in $DIRF"
+    if ( ! fileexists $FILEF )
+    then
+        finddjbase
+    else
+        startvim "$DIRF"
+        exit
+    fi
+}
+
+#Check if we can find setting.py
+function fileexists(){
+    local f="$1"
+    if [ ! -f $f ]
+    then
+        echo "This is not the Django base directory... trying"
+        return 1
+    else
+        echo "settings.py FOUND at $1"
+        return 0
+    fi
+}
+
+#Main block
+
+ARGS=$@
+DIRN=`pwd`
+FILEN=`echo "$DIRN/settings.py"`
+
+if ( ! fileexists $FILEN )
+then
+    finddjbase
+else
+    startvim $DIRN
+    exit
+fi

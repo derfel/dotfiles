@@ -1,0 +1,4 @@
+#!/bin/sh
+
+/usr/bin/eclipse -vmargs -Djava.net.preferIPv4Stack=true
+

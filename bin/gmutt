@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mutt -F ~/.mutt/muttrc.gmail
+
