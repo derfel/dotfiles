@@ -8,6 +8,7 @@
     ~/.eslintrc: eslintrc
     ~/.gitconfig: gitconfig
     ~/.editorconfig: editorconfig
+    ~/.tern-project: tern-project
     ~/.hgrc: hgrc
     ~/.terminfo/x/xterm-derfel:
         path: terminfo/x/xterm-derfel
