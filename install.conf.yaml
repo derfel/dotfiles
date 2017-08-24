@@ -5,6 +5,7 @@
     ~/.bashrc: bashrc
     ~/.bash_logout: bash_logout
     ~/.gitconfig: gitconfig
+    ~/.editorconfig: editorconfig
     ~/.hgrc: hgrc
     ~/.terminfo/x/xterm-derfel:
         path: terminfo/x/xterm-derfel
