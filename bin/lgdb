@@ -1,6 +1,0 @@
-#!/bin/bash
-prog=$1
-shift
-exec gdb --args $(dirname $prog)/.libs/lt-$(basename $prog) "$@"
-
-

@@ -1,4 +1,0 @@
-#!/bin/bash
-
-exec transmission-remote 151.21.71.82:7001 --auth=tornado:203d903bc62169542a7f91a4e44a2eb184a8c508jt9zlZ75 $@
-

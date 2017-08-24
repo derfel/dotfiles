@@ -1,4 +1,0 @@
-#!/bin/sh
-
-QT_IM_MODULE='' XMODIFIERS='' GTK_IM_MODULE='' VirtualBox
-
