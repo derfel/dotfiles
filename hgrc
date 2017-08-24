@@ -1,0 +1,41 @@
+[alias]
+__mystatus = status
+st = !hg __mystatus $($HG root) $HG_ARGS
+
+[ui]
+username="Federico 'Derfel' Stella <code@derfel.net>"
+ssh = ssh -C
+editor = /usr/bin/vim
+
+[extensions]
+hgext.graphlog = 
+color =
+shelve =
+histedit =
+purge =
+progress =
+pager =
+hgext.convert=
+hgext.extdiff =
+strip =
+hggit =
+fetch =
+rebase =
+
+[color]
+mode = auto
+
+[pager]
+pager = LESS='FRX' less
+ignore = version, help, update
+
+[alias]
+# lets introduce hg blame
+blame = annotate --user --number -c
+# short log
+llog = log --limit 10
+
+[extdiff]
+# add new command called meld, runs meld (no need to name twice)
+cmd.meld =
+

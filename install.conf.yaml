@@ -5,6 +5,10 @@
     ~/.bashrc: bashrc
     ~/.bash_logout: bash_logout
     ~/.gitconfig: gitconfig
+    ~/.hgrc: hgrc
+    ~/.terminfo/x/xterm-derfel:
+        path: terminfo/x/xterm-derfel
+        create: true
     ~/.ssh/config:
         path: ssh/config
         create: true
