@@ -10,6 +10,9 @@
     ~/.editorconfig: editorconfig
     ~/.tern-project: tern-project
     ~/.hgrc: hgrc
+    ~/.config/gtk-3.0:
+        path: config/gtk-3.0
+        create: true
     ~/.terminfo/x/xterm-derfel:
         path: terminfo/x/xterm-derfel
         create: true
