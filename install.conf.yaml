@@ -4,6 +4,7 @@
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
     ~/.bash_logout: bash_logout
+    ~/.dircolors: dircolors
     ~/.gitconfig: gitconfig
     ~/.editorconfig: editorconfig
     ~/.hgrc: hgrc
