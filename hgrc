@@ -1,26 +1,21 @@
-[alias]
-__mystatus = status
-st = !hg __mystatus $($HG root) $HG_ARGS
-
 [ui]
 username="Federico 'Derfel' Stella <code@derfel.net>"
 ssh = ssh -C
 editor = /usr/bin/vim
 
 [extensions]
-hgext.graphlog = 
-color =
-shelve =
-histedit =
-purge =
-progress =
-pager =
 hgext.convert=
 hgext.extdiff =
-strip =
-hggit =
-fetch =
+#hgext.git =
+hgext.graphlog = 
+#hggit = /home/derfel/devel/hg-git/hggit
+hggit = /home/derfel/devel/hg-git/hggit
+histedit =
+pager =
+purge =
 rebase =
+shelve =
+strip =
 
 [color]
 mode = auto
@@ -34,8 +29,23 @@ ignore = version, help, update
 blame = annotate --user --number -c
 # short log
 llog = log --limit 10
+# st
+__mystatus = status
+st = !hg __mystatus $($HG root) $HG_ARGS
 
 [extdiff]
 # add new command called meld, runs meld (no need to name twice)
 cmd.meld =
+cmd.icdiff =
+# add new command that runs GNU diff(1) in 'context diff' mode
+cmd.cdiff = gdiff
+opts.cdiff = -Nprc5
 
+# similarly, a command that runs GNU diff(1) in 'side-by-side' mode
+cmd.ydiff = gdiff
+opts.ydiff = -Npry
+
+# note:  could subsitute ImageMagick's "display" call instead of "gqview" for
+# greater portability, but gqview is nicer
+cmd.imdiff = sh
+opts.imdiff = -c 'compare $0 $1 /tmp/compared.png; eog /tmp/compared.png'

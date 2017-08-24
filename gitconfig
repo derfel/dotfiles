@@ -3,3 +3,5 @@
 	email = code@derfel.net
 [push]
 	default = simple
+[alias]
+	meld = !git difftool -t meld --dir-diff
