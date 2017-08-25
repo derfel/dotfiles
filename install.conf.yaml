@@ -12,6 +12,9 @@
     ~/.hgrc: hgrc
     ~/.tmux.conf: tmux.conf
     ~/.screenrc: screenrc
+    ~/.bash_it/themes/derfel/derfel.theme.bash:
+        path: bash-it/themes/derfel/derfel.theme.bash
+        create: true
     ~/.config/gtk-3.0:
         path: config/gtk-3.0
         create: true
