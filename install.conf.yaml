@@ -18,6 +18,7 @@
     ~/.config/gtk-3.0:
         path: config/gtk-3.0
         create: true
+    ~/.config/pep8: config/pep8
     ~/.terminfo/x/xterm-derfel:
         path: terminfo/x/xterm-derfel
         create: true
