@@ -10,6 +10,7 @@
     ~/.editorconfig: editorconfig
     ~/.tern-project: tern-project
     ~/.hgrc: hgrc
+    ~/.inputrc: inputrc
     ~/.tmux.conf: tmux.conf
     ~/.screenrc: screenrc
     ~/.bash_it/themes/derfel/derfel.theme.bash:
