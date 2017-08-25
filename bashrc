@@ -3,14 +3,16 @@
 # for examples
 
 
-case "`tty`" in
-	/dev/pts/[0-9]*) export TERM="xterm-derfel"
-esac
+#case "`tty`" in
+	#/dev/pts/[0-9]*) export TERM="xterm-derfel"
+	#/dev/pts/[0-9]*) if [[ $TERM == xterm ]]; then TERM=xterm-256color; fi
+#esac
 
-if [ ! -z "$TERMCAP" ] && [ "$TERM" == "screen" ]; then                         
-	export TERMCAP=$(echo $TERMCAP | sed -e 's/Co#8/Co#256/g')                  
-fi 
+#if [ ! -z "$TERMCAP" ] && [ "$TERM" == "screen" ]; then
+#	export TERMCAP=$(echo $TERMCAP | sed -e 's/Co#8/Co#256/g')
+#fi 
 
+[[ $TMUX != "" ]] && export TERM="tmux-256color"
 
 LANG="it_IT.UTF-8"
 LANGUAGE="it_IT.UTF-8"
@@ -58,7 +60,7 @@ MAILPATH="/var/spool/mail/derfel:~/Mail/spam:~/Mail/abuse:~/Mail/system-msg:~/Ma
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-xterm-color|xterm-derfel)
+xterm-color|xterm-256color|xterm-derfel|screen-256color|tmux-256color)
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u\[\033[00m\]\[\033[01;33m\]@\[\033[00m\]\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '
     ;;
