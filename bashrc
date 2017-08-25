@@ -26,6 +26,9 @@ export FONTCONFIG_PATH="/etc/fontas"
 EDITOR="vim"
 VISUAL="gvim"
 
+if command -v most > /dev/null 2>&1; then
+	export PAGER="most"
+fi
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -59,15 +62,14 @@ fi
 MAILPATH="/var/spool/mail/derfel:~/Mail/spam:~/Mail/abuse:~/Mail/system-msg:~/Mail/debian-bugs:~/Mail/game:~/Mail/squid:~/Mail/debian-apt-trad:newsgroup:$(echo ~/Mail/Lists/* | sed -e 's/ /:/g')"
 
 # set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-xterm-color|xterm-256color|xterm-derfel|screen-256color|tmux-256color)
-    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u\[\033[00m\]\[\033[01;33m\]@\[\033[00m\]\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '
-    ;;
-*)
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    ;;
-esac
+#case "$TERM" in
+#xterm-color|xterm-256color|xterm-derfel|screen-256color|tmux-256color)
+#    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\u\[\033[00m\]\[\033[01;33m\]@\[\033[00m\]\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '
+#    ;;
+#*)
+#    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+#    ;;
+#esac
 
 # Comment in the above and uncomment this below for a color prompt
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
@@ -80,10 +82,7 @@ xterm*|rxvt*)
 *)
     ;;
 esac
-
-if command -v most > /dev/null 2>&1; then
-	export PAGER="most"
-fi
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -132,8 +131,8 @@ alias make='colormake'
 alias man='LC_ALL=C man'
 alias imv='mv -i'
 
-# ad doesn't have a config file
-alias ag="ag --color-match='1;35' --color-line-number='1;34' --pager='less -r'"
+# ag doesn't have a config file
+alias ag="ag --smart-case --color-match='1;35' --color-line-number='1;34' --pager='less -MIRFX'"
 
 alias runserver="python manage.py runserver"
 alias shell="python manage.py shell"
@@ -166,45 +165,56 @@ complete -C '/usr/bin/aws_completer' aws
 #GDK_CORE_DEVICE_EVENTS=1
 #export GDK_CORE_DEVICE_EVENTS
 
-###-begin-pm2-completion-###
-### credits to npm for the completion file model
-#
-# Installation: pm2 completion >> ~/.bashrc  (or ~/.zshrc)
-#
-
-COMP_WORDBREAKS=${COMP_WORDBREAKS/=/}
-COMP_WORDBREAKS=${COMP_WORDBREAKS/@/}
-export COMP_WORDBREAKS
-
-if type complete &>/dev/null; then
-  _pm2_completion () {
-    local si="$IFS"
-    IFS=$'\n' COMPREPLY=($(COMP_CWORD="$COMP_CWORD" \
-                           COMP_LINE="$COMP_LINE" \
-                           COMP_POINT="$COMP_POINT" \
-                           pm2 completion -- "${COMP_WORDS[@]}" \
-                           2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  complete -o default -F _pm2_completion pm2
-elif type compctl &>/dev/null; then
-  _pm2_completion () {
-    local cword line point words si
-    read -Ac words
-    read -cn cword
-    let cword-=1
-    read -l line
-    read -ln point
-    si="$IFS"
-    IFS=$'\n' reply=($(COMP_CWORD="$cword" \
-                       COMP_LINE="$line" \
-                       COMP_POINT="$point" \
-                       pm2 completion -- "${words[@]}" \
-                       2>/dev/null)) || return $?
-    IFS="$si"
-  }
-  compctl -K _pm2_completion + -f + pm2
-fi
-###-end-pm2-completion-###
 
 
+
+# Path to the bash it configuration
+export BASH_IT="/home/derfel/.bash_it"
+
+# Lock and Load a custom theme file
+# location /.bash_it/themes/
+export BASH_IT_THEME='derfel'
+
+# (Advanced): Change this to the name of your remote repo if you
+# cloned bash-it with a remote other than origin such as `bash-it`.
+# export BASH_IT_REMOTE='bash-it'
+
+# Your place for hosting Git repos. I use this for private repos.
+#export GIT_HOSTING='git@git.domain.com'
+
+# Don't check mail when opening terminal.
+unset MAILCHECK
+
+# Change this to your console based IRC client of choice.
+#export IRC_CLIENT='irssi'
+
+# Set this to the command you use for todo.txt-cli
+#export TODO="t"
+
+# Set this to false to turn off version control status checking within the prompt for all themes
+export SCM_CHECK=true
+
+# Set Xterm/screen/Tmux title with only a short hostname.
+# Uncomment this (or set SHORT_HOSTNAME to something else),
+# Will otherwise fall back on $HOSTNAME.
+#export SHORT_HOSTNAME=$(hostname -s)
+
+# Set Xterm/screen/Tmux title with only a short username.
+# Uncomment this (or set SHORT_USER to something else),
+# Will otherwise fall back on $USER.
+#export SHORT_USER=${USER:0:8}
+
+# Set Xterm/screen/Tmux title with shortened command and directory.
+# Uncomment this to set.
+#export SHORT_TERM_LINE=true
+
+# Set vcprompt executable path for scm advance info in prompt (demula theme)
+# https://github.com/djl/vcprompt
+#export VCPROMPT_EXECUTABLE=~/.vcprompt/bin/vcprompt
+
+# (Advanced): Uncomment this to make Bash-it reload itself automatically
+# after enabling or disabling aliases, plugins, and completions.
+# export BASH_IT_AUTOMATIC_RELOAD_AFTER_CONFIG_CHANGE=1
+
+# Load Bash It
+source "$BASH_IT"/bash_it.sh
