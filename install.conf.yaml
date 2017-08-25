@@ -10,6 +10,8 @@
     ~/.editorconfig: editorconfig
     ~/.tern-project: tern-project
     ~/.hgrc: hgrc
+    ~/.tmux.conf: tmux.conf
+    ~/.screenrc: screenrc
     ~/.config/gtk-3.0:
         path: config/gtk-3.0
         create: true

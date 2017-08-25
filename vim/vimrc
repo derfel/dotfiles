@@ -168,9 +168,18 @@ endif
 " ---------------
 set background=dark
 
+"if has('termguicolors')
+"	set termguicolors
+"endif
+
 " Conditionally Set colorscheme
 if has('unix') && !has('gui_macvim')
   if $TERM == 'xterm-256color'
+    colorscheme derfel
+  elseif $TERM == 'tmux-256color'
+    colorscheme derfel
+  elseif $TERM == 'screen-256color'
+    set t_Co=256
     colorscheme derfel
   elseif $TERM == 'vte-256color'
     colorscheme derfel
