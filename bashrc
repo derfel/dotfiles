@@ -12,7 +12,7 @@
 #	export TERMCAP=$(echo $TERMCAP | sed -e 's/Co#8/Co#256/g')
 #fi 
 
-[[ $TMUX != "" ]] && export TERM="tmux-256color"
+#[[ $TMUX != "" ]] && export TERM="xterm-256color"
 
 LANG="it_IT.UTF-8"
 LANGUAGE="it_IT.UTF-8"
@@ -81,6 +81,10 @@ xterm*|rxvt*)
     ;;
 esac
 
+if command -v most > /dev/null 2>&1; then
+	export PAGER="most"
+fi
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -125,7 +129,7 @@ alias dsk='du -sh'
 alias bc='bc -q'
 alias diff='colordiff'
 alias make='colormake'
-alias man='LC_ALL=C PAGER=less man'
+alias man='LC_ALL=C man'
 alias imv='mv -i'
 
 # ad doesn't have a config file
