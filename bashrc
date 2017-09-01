@@ -108,6 +108,7 @@ export GREP_COLOR
 alias grep='grep --directories=skip --color=auto'
 
 export TMPDIR='/tmp/derfel'
+mkdir -p $TMPDIR
 
 # Distcc
 #export CC="ccache distcc gcc"
