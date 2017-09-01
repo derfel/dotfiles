@@ -16,6 +16,7 @@ purge =
 rebase =
 shelve =
 strip =
+mq =
 
 [color]
 mode = auto
