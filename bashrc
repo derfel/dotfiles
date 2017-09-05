@@ -96,7 +96,8 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
 # enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" ]; then
     eval "`dircolors -b`"
-    alias ls='ls --color=auto'
+    # force color through pipe
+    alias ls='ls --color'
     #alias dir='ls --color=auto --format=vertical'
     #alias vdir='ls --color=auto --format=long'
 fi
@@ -131,6 +132,8 @@ alias diff='colordiff'
 alias make='colormake'
 alias man='LC_ALL=C man'
 alias imv='mv -i'
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ccat="pygmentize -O style=vim -f terminal16m -g"
 
 # ag doesn't have a config file
 alias ag="ag --smart-case --color-match='1;35' --color-line-number='1;34' --pager='less -MIRFX'"
