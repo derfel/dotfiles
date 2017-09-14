@@ -153,6 +153,9 @@ NO_PROXY=localhost,127.0.0.0/8,*.local
 export NO_PROXY
 export no_proxy
 
+MINICOM="-c on"
+export MINICOM
+
 /usr/games/fortune
 
 # enable programmable completion features (you don't need to enable
