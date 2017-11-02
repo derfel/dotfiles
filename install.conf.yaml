@@ -14,6 +14,9 @@
     ~/.pbuilderrc: pbuilderrc
     ~/.tmux.conf: tmux.conf
     ~/.screenrc: screenrc
+    ~/.config/yapf/style:
+        path: style.yapf
+        create: true
     ~/.bash_it/themes/derfel/derfel.theme.bash:
         path: bash-it/themes/derfel/derfel.theme.bash
         create: true
