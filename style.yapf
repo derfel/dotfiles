@@ -1,0 +1,10 @@
+[style]
+based_on_style = google
+use_tabs = true
+indent_width = 1
+column_limit = 120
+dedent_closing_brackets = true
+continuation_indent_width = 1
+coalesce_brackets = true
+join_multiple_lines = false
+indent_dictionary_value = true
