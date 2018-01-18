@@ -156,6 +156,8 @@ export no_proxy
 MINICOM="-c on"
 export MINICOM
 
+export GOPATH=$HOME/devel/.go
+
 /usr/games/fortune
 
 # enable programmable completion features (you don't need to enable
