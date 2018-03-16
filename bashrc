@@ -23,7 +23,7 @@ export LANG LC_ALL LANGUAGE
 export FONTCONFIG_PATH="/etc/fontas"
 
 # Textual editor
-EDITOR="vim"
+EDITOR="nvim"
 VISUAL="gvim"
 
 if command -v most > /dev/null 2>&1; then
