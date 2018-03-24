@@ -143,6 +143,14 @@ alias shell="python manage.py shell"
 alias migrate="python manage.py migrate"
 alias migration="python manage.py schemamigration"
 
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+	if [ -x "$(command -v nvr)" ]; then
+			alias nvim=nvr
+		else
+			alias nvim='echo "No nesting!"'
+	fi
+fi
+
 #http_proxy="http://192.168.1.7:3128"
 #HTTP_PROXY="http://192.168.1.7:3128"
 no_proxy=localhost,127.0.0.0/8,*.local
