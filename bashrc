@@ -26,8 +26,8 @@ export FONTCONFIG_PATH="/etc/fontas"
 EDITOR="nvim"
 VISUAL="gvim"
 
-if command -v most > /dev/null 2>&1; then
-	export PAGER="most"
+if command -v less > /dev/null 2>&1; then
+	export PAGER="less"
 fi
 
 # If not running interactively, don't do anything
@@ -120,8 +120,16 @@ export DISTCC_HOSTS='--randomize localhost,cpp,lzo fingolfin,cpp,lzo'
 
 export LESSCHARSET=utf-8
 # Less Hack to enable colors.
-# http://blog.0x1fff.com/2009/11/linux-tip-color-enabled-pager-less.html
+# https://blog.0x1fff.com/posts/2009/2009-11-17-linux-tip-color-enabled-pager-less/
 export LESS="-RSM~gIsw"
+# Color man pages using less
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
 
 eval `dircolors -b ~/.dircolors`
 alias ll='ls -l'
@@ -142,6 +150,9 @@ alias runserver="python manage.py runserver"
 alias shell="python manage.py shell"
 alias migrate="python manage.py migrate"
 alias migration="python manage.py schemamigration"
+
+alias norg="gron --ungron"
+alias ungron="gron --ungron"
 
 if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
 	if [ -x "$(command -v nvr)" ]; then
