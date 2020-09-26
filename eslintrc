@@ -1,6 +1,19 @@
 {
-	"extends": "airbnb-base",
+	"extends": ["airbnb-base", "prettier"],
 	"env": {
-		"es6": true
+		"node": true,
+		"es6": true,
 	},
+	"rules": {
+		"max-len": ["error", 120],
+		"indent": [2, "tab", { "SwitchCase": 1 }],
+		"prettier/prettier": ["error", { "singleQuote": true, useTabs: true }],
+		"no-tabs": "off",
+		"camelcase": "off",
+		"comma-dangle": ["error", "only-multiline"],
+		"max-classes-per-file": ["error", 10]
+	},
+	"plugins": [
+		"prettier"
+	]
 }
